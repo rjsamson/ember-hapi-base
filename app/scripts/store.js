@@ -1,0 +1,1 @@
+EmberHapi.ApplicationAdapter = DS.FixtureAdapter;
