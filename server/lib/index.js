@@ -1,6 +1,4 @@
-var Hapi = require('hapi');
-
-var server = Hapi.createServer('localhost', 8000);
+var server = require('./server');
 
 server.route({
   method: 'GET',
@@ -9,7 +7,5 @@ server.route({
     directory: { path: './dist', listing: false, index: true }
   }
 });
-
-module.exports = server;
 
 server.start();

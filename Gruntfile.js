@@ -30,15 +30,21 @@ module.exports = function (grunt) {
             }
         },
         hapi: {
+            dev: {
+                options: {
+                    server: require('path').resolve('./server/lib/server'),
+                    bases: {'/': './dist'}
+                }
+            },
             server: {
                 options: {
-                    server: require('path').resolve('./server/lib/index'),
+                    server: require('path').resolve('./server/lib/server'),
                     bases: {}
                 }
             },
             test: {
                 options: {
-                    server: require('path').resolve('./server/lib/index'),
+                    server: require('path').resolve('./server/lib/server'),
                     bases: {
                     '/ember_tests': './ember-tests'
                     }
@@ -320,7 +326,8 @@ module.exports = function (grunt) {
             'concurrent:server',
             'neuter:app',
             'copy:fonts',
-            'hapi:server',
+            'copy',
+            'hapi:dev',
             'watch'
         ]);
     });
