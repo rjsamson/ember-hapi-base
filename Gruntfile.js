@@ -24,6 +24,11 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
+        exec: {
+            lab: {
+                command: 'node_modules/.bin/lab -v -c'
+            }
+        },
         hapi: {
             server: {
                 options: {
@@ -348,4 +353,6 @@ module.exports = function (grunt) {
         'test',
         'build'
     ]);
+
+    grunt.registerTask('test', ['exec:lab']);
 };
