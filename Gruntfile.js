@@ -33,7 +33,7 @@ module.exports = function (grunt) {
             dev: {
                 options: {
                     server: require('path').resolve('./server/lib/server'),
-                    bases: {'/': './dist'}
+                    bases: {'/': './.tmp'}
                 }
             },
             server: {
@@ -269,6 +269,19 @@ module.exports = function (grunt) {
                         ]
                     }
                 ]
+            },
+            dev: {
+                files: [
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= yeoman.app %>',
+                        dest: '.tmp',
+                        src: [
+                            'bower_components/**/*'
+                        ]
+                    }
+                ]
             }
         },
         concurrent: {
@@ -326,7 +339,7 @@ module.exports = function (grunt) {
             'concurrent:server',
             'neuter:app',
             'copy:fonts',
-            'copy',
+            'copy:dev',
             'hapi:dev',
             'watch'
         ]);
@@ -350,7 +363,7 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy',
+        'copy:dist',
         'rev',
         'usemin'
     ]);
