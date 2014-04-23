@@ -1,4 +1,4 @@
-var EmberHapi = window.EmberHapi = Ember.Application.create();
+var App = window.App = Ember.Application.create();
 
 /* Order and include as you please. */
 require('scripts/controllers/*');
