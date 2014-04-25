@@ -1,7 +1,10 @@
 // Placehold showing handler structure
 // Stupid example using in memory array as data store
 
-var todos = [ { id: 1, title: "Learn Hapi" }, { id: 2, title: "Learn Ember" } ];
+var todos = [
+  { id: 1, title: "Learn Hapi" },
+  { id: 2, title: "Learn Ember" }
+];
 
 exports.IndexHandler = function(request, reply) {
   reply({todos: todos});
