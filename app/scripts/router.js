@@ -1,3 +1,5 @@
 App.Router.map(function () {
-  // Add your routes here
+  this.resource('todos', function() {
+    this.route('new');
+  });
 });
