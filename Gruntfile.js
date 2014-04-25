@@ -54,7 +54,7 @@ module.exports = function (grunt) {
         watch: {
             hapi: {
                 files: ['server/lib/**/*.{js, coffee}'],
-                tasks: ['hapi'],
+                tasks: ['hapi:dev'],
                 options: {
                     spawn: false // Newer versions of grunt-contrib-watch might require this parameter.
                 }
