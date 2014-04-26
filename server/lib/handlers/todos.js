@@ -2,8 +2,8 @@
 // Stupid example using in memory array as data store
 
 var todos = [
-  { id: 1, title: "Learn Hapi" },
-  { id: 2, title: "Learn Ember" }
+  { id: 1, title: "Learn Hapi", complete: false },
+  { id: 2, title: "Learn Ember", complete: false }
 ];
 
 exports.IndexHandler = function(request, reply) {
@@ -13,7 +13,7 @@ exports.IndexHandler = function(request, reply) {
 exports.CreateHandler = function(request, reply) {
   var newTodo = JSON.parse(request.payload);
 
-  if (newTodo.title) {
+  if (typeof newTodo.title !== undefined) {
     newTodo.id = todos.length + 1;
     todos.push(newTodo);
   }
@@ -33,8 +33,15 @@ exports.UpdateHandler = function(request, reply) {
   var index = parseInt(request.params.todo_id) - 1;
   var updatedTodo = JSON.parse(request.payload);
 
-  if(updatedTodo.title) {
+  var title = updatedTodo.title;
+  var complete = updatedTodo.complete;
+
+  if(typeof updatedTodo.title !== undefined) {
     todos[index].title = updatedTodo.title;
+  }
+
+  if(typeof updatedTodo.complete !== undefined) {
+    todos[index].complete = updatedTodo.complete;
   }
 
   console.log(request.payload);
