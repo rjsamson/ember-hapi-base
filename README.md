@@ -9,3 +9,5 @@ Fork it and run `npm install && bower install`
 Run `grunt serve` to start the server - server will reload / recompile Ember app on file changes
 
 Run `grunt ember-test` to run the ember tests
+
+Run `grunt test` to run Hapi tests
