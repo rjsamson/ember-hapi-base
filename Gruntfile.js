@@ -26,7 +26,7 @@ module.exports = function (grunt) {
         yeoman: yeomanConfig,
         exec: {
             lab: {
-                command: 'node_modules/.bin/lab -v -c'
+                command: 'node_modules/.bin/lab -v -c -C'
             }
         },
         hapi: {
