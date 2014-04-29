@@ -8,4 +8,6 @@ server.route({
   }
 });
 
+module.exports = server;
+
 server.start();
