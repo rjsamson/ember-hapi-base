@@ -11,3 +11,5 @@ Run `grunt serve` to start the server - server will reload / recompile Ember app
 Run `grunt ember-test` to run the ember tests
 
 Run `grunt test` to run Hapi tests
+
+Run `grunt build` to build the minified deployable Ember app.
