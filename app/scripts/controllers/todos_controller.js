@@ -11,9 +11,6 @@ App.TodosController = Ember.ArrayController.extend({
       todo.save().then(function(theTodo) {
         controller.set('newTodo', '');
       });
-    },
-    toggleComplete: function() {
-      console.log("COMPLETE");
     }
   }
 });
