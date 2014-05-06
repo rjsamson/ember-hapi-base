@@ -11,7 +11,7 @@ exports.IndexHandler = function(request, reply) {
 };
 
 exports.CreateHandler = function(request, reply) {
-  var newTodo = JSON.parse(request.payload);
+  var newTodo = request.payload.todo;
 
   if (typeof newTodo.title !== undefined) {
     newTodo.id = todos.length + 1;
@@ -31,7 +31,7 @@ exports.ShowHandler = function(request, reply) {
 
 exports.UpdateHandler = function(request, reply) {
   var index = parseInt(request.params.todo_id) - 1;
-  var updatedTodo = JSON.parse(request.payload);
+  var updatedTodo = request.payload.todo;
 
   var title = updatedTodo.title;
   var complete = updatedTodo.complete;
@@ -44,7 +44,6 @@ exports.UpdateHandler = function(request, reply) {
     todos[index].complete = updatedTodo.complete;
   }
 
-  console.log(request.payload);
   reply({success: true});
 };
 
