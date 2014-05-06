@@ -15,12 +15,13 @@ exports.CreateHandler = function(request, reply) {
 
   if (typeof newTodo.title !== undefined) {
     newTodo.id = todos.length + 1;
+    newTodo.complete = false;
     todos.push(newTodo);
   }
 
   console.log(newTodo);
 
-  reply({success: true});
+  reply({todo: newTodo});
 };
 
 exports.ShowHandler = function(request, reply) {
@@ -44,7 +45,7 @@ exports.UpdateHandler = function(request, reply) {
     todos[index].complete = updatedTodo.complete;
   }
 
-  reply({success: true});
+  reply({todo: todos[index]});
 };
 
 exports.DeleteHandler = function(request, reply) {

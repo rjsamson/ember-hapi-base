@@ -1,7 +1,10 @@
 <h1>Todos</h1>
 <ul>
 {{#each}}
-  <li>{{title}}</li>
+  <li {{bind-attr class="complete:complete"}}>
+    {{input type='checkbox' checked=complete}}
+    {{title}}
+  </li>
 {{/each}}
 </ul>
 {{partial 'todos/new'}}
