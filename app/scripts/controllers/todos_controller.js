@@ -11,6 +11,9 @@ App.TodosController = Ember.ArrayController.extend({
       todo.save().then(function(theTodo) {
         controller.set('newTodo', '');
       });
+    },
+    deleteTodo: function(todo) {
+      todo.destroyRecord();
     }
   }
 });

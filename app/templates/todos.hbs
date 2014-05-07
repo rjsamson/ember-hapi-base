@@ -1,10 +1,14 @@
 <h1>Todos</h1>
-<ul>
-{{#each}}
-  <li {{bind-attr class="complete:complete"}}>
-    {{input type='checkbox' checked=complete}}
-    {{title}}
-  </li>
-{{/each}}
-</ul>
+<div class="row">
+  <ul class="list-group col-md-6">
+  {{#each}}
+    <li class="list-group-item">
+      {{input type='checkbox' checked=complete}}
+      <span {{bind-attr class="complete:complete"}}>{{title}}</span>
+      <button class="btn btn-danger btn-xs pull-right delete-todo" {{action 'deleteTodo' this}}>&times;</button>
+    </li>
+  {{/each}}
+  </ul>
+</div>
 {{partial 'todos/new'}}
+

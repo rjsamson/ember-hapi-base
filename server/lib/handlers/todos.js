@@ -50,9 +50,9 @@ exports.UpdateHandler = function(request, reply) {
 
 exports.DeleteHandler = function(request, reply) {
   var index = parseInt(request.params.todo_id) - 1;
+  var todo = todos[index];
 
   todos.splice(index, 1);
 
-  console.log(todos[index]);
-  reply({success: true});
+  reply({todo: todo});
 };

@@ -9,3 +9,12 @@ html, body {
 .complete {
   text-decoration:line-through;
 }
+
+li .delete-todo {
+  display: none;
+}
+
+li:hover .delete-todo {
+  display: block;
+}
+

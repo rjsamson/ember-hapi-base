@@ -1,4 +1,8 @@
-<div class="col-xs-3">
-{{input type='text' class="form-control" value=newTodo}}
+<div class="row">
+  <div class="col-xs-3">
+    {{input type='text' class="form-control" value=newTodo}}
+  </div>
+  <button type='button' {{action 'createTodo'}} class='btn btn-default'>
+    Create Todo
+  </button>
 </div>
-<button type='button' {{action 'createTodo'}} class='btn btn-default'>Create Todo</button>
