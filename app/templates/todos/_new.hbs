@@ -5,4 +5,9 @@
   <button type='button' {{action 'createTodo'}} class='btn btn-default'>
     Create Todo
   </button>
+  {{#if hasCompleted}}
+    <button {{action 'clearCompleted'}} class='btn btn-default'>
+      Clear Conmpleted
+    </button>
+  {{/if}}
 </div>
