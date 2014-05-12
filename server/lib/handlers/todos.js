@@ -1,10 +1,13 @@
 // Placehold showing handler structure
 // Stupid example using in memory array as data store
+var _ = require('lodash');
 
 var todos = [
   { id: 1, title: "Learn Hapi", complete: false },
   { id: 2, title: "Learn Ember", complete: false }
 ];
+
+var nextId = 3;
 
 exports.IndexHandler = function(request, reply) {
   reply({todos: todos});
@@ -14,26 +17,28 @@ exports.CreateHandler = function(request, reply) {
   var newTodo = request.payload.todo;
 
   if (typeof newTodo.title !== undefined) {
-    newTodo.id = todos.length + 1;
+    newTodo.id = nextId;
     newTodo.complete = false;
     todos.push(newTodo);
+    nextId += 1;
   }
-
-  console.log(newTodo);
 
   reply({todo: newTodo});
 };
 
 exports.ShowHandler = function(request, reply) {
-  var index = parseInt(request.params.todo_id) - 1;
+  var todo_id = parseInt(request.params.todo_id);
+  var todo = _.find(todos, {'id': todo_id});
 
-  reply({todos: [todos[index]]});
+  reply({todo: todo});
 };
 
 exports.UpdateHandler = function(request, reply) {
-  var index = parseInt(request.params.todo_id) - 1;
-  var updatedTodo = request.payload.todo;
+  var todo_id = parseInt(request.params.todo_id);
+  var todo = _.find(todos, {'id': todo_id});
+  var index = _.indexOf(todos, todo);
 
+  var updatedTodo = request.payload.todo;
   var title = updatedTodo.title;
   var complete = updatedTodo.complete;
 
@@ -49,10 +54,11 @@ exports.UpdateHandler = function(request, reply) {
 };
 
 exports.DeleteHandler = function(request, reply) {
-  var index = parseInt(request.params.todo_id) - 1;
-  var todo = todos[index];
+  var todo_id = parseInt(request.params.todo_id);
 
-  todos.splice(index, 1);
+  var todo = _.find(todos, {'id': todo_id});
+
+  todos = _.reject(todos, {'id': todo_id});
 
   reply({todo: todo});
 };
