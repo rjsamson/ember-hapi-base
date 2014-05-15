@@ -9,10 +9,6 @@ var users = {
 }
 
 exports.Login = function(request, reply) {
-  if (request.auth.isAuthenticated) {
-    return reply({success: true});
-  }
-
   var account = null;
 
   if (!request.payload.username || !request.payload.password) {
