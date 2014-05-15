@@ -16,7 +16,7 @@ exports.Login = function(request, reply) {
   var account = null;
 
   if (!request.payload.username || !request.payload.password) {
-    return reply({error: "invalid username or password"})
+    return reply({error: "missing username or password"})
              .code(401);
   } else {
     account = users[request.payload.username];
