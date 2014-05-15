@@ -40,7 +40,8 @@
     "grunt-hapi": "^0.7.0",
     "hapi": "^4.0.0",
     "grunt-exec": "^0.4.5",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "hapi-auth-cookie": "^1.0.2"
   },
   "engines": {
     "node": ">=0.8.0"
